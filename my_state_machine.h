@@ -1,6 +1,8 @@
 #ifndef _my_state_machine_h_
 #define _my_state_machine_h_
 
+#include <Adafruit_NeoPixel.h>
+
 #include "my_states.h"
 #include "my_transitions.h"
 #include "my_entry_actions.h"
@@ -9,6 +11,7 @@
 // State machine (designed for POLLING)
 typedef struct STATE_MACHINE
 {
+    Adafruit_NeoPixel *strip;
     // Stores the current state
     STATE current_state;
     // Stores the next state

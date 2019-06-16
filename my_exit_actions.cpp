@@ -6,32 +6,31 @@
 //! 2) Write non-blocking code.
 //! 3) The functions are currently dummies, no real functionality. Modify accordingly.
 
-#include <stdio.h>
-#include <stdlib.h>
 
 // The exit action of state A. Write non-blocking code only, this is a polling state machine.
 void exit_action_state_A(void* state_machine)
 {
-    printf("exit: A [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+/*
+	((STATE_MACHINE*)state_machine)->strip->setPixelColor(0,0,0,0);
+	((STATE_MACHINE*)state_machine)->strip->setPixelColor(1,0,0,0);
+	((STATE_MACHINE*)state_machine)->strip->setPixelColor(2,0,0,0);
+	((STATE_MACHINE*)state_machine)->strip->setPixelColor(3,0,0,0);*/
 }
 
 // The exit action of state B. Write non-blocking code only, this is a polling state machine.
 void exit_action_state_B(void* state_machine)
 {
-    printf("exit: B [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+
 }
 
 // The exit action of state C. Write non-blocking code only, this is a polling state machine.
 void exit_action_state_C(void* state_machine)
 {
-    printf("exit: C [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
 }
 
 // The exit action of state D. Write non-blocking code only, this is a polling state machine.
 void exit_action_state_D(void* state_machine)
 {
-    printf("exit: D [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
-    exit(-1);
 }
 
 //! Modify if number of states or function names changed.

@@ -13,9 +13,20 @@
 void state_A(void* state_machine)
 {
     entry_actions(state_machine);
-
-    printf("state: A [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
     ((STATE_MACHINE*)state_machine)->next_state = B;
+/*
+    switch(*((STATE_MACHINE*)state_machine)->input) {
+	    case 'L':
+		((STATE_MACHINE*)state_machine)->next_state = D;
+		break;
+	    case 'R':
+	    	((STATE_MACHINE*)state_machine)->next_state = B;
+		break;
+	     default: 
+	    	((STATE_MACHINE*)state_machine)->next_state = C;
+		break;
+    }
+*/
 
     transitions(state_machine);
 }
@@ -24,10 +35,17 @@ void state_A(void* state_machine)
 void state_B(void* state_machine)
 {
     entry_actions(state_machine);
-
-    printf("state: B [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
     ((STATE_MACHINE*)state_machine)->next_state = C;
-
+/*
+    switch(*((STATE_MACHINE*)state_machine)->input) {
+	    case 'L':
+	    	((STATE_MACHINE*)state_machine)->next_state = A;
+		break;
+	    case 'R':
+	    	((STATE_MACHINE*)state_machine)->next_state = C;
+		break;
+    }
+*/
     transitions(state_machine);
 }
 
@@ -35,10 +53,17 @@ void state_B(void* state_machine)
 void state_C(void* state_machine)
 {
     entry_actions(state_machine);
-
-    printf("state: C [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
     ((STATE_MACHINE*)state_machine)->next_state = D;
-
+/*
+    switch(*((STATE_MACHINE*)state_machine)->input) {
+	    case 'L':
+	    	((STATE_MACHINE*)state_machine)->next_state = B;
+		break;
+	    case 'R':
+	    	((STATE_MACHINE*)state_machine)->next_state = D;
+		break;
+    }
+*/
     transitions(state_machine);
 }
 
@@ -46,10 +71,17 @@ void state_C(void* state_machine)
 void state_D(void* state_machine)
 {
     entry_actions(state_machine);
-
-    printf("state: D [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
     ((STATE_MACHINE*)state_machine)->next_state = A;
-
+/*
+    switch(*((STATE_MACHINE*)state_machine)->input) {
+	    case 'L':
+	    	((STATE_MACHINE*)state_machine)->next_state = C;
+		break;
+	    case 'R':
+	    	((STATE_MACHINE*)state_machine)->next_state = A;
+		break;
+    }
+*/
     transitions(state_machine);
 }
 

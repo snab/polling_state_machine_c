@@ -9,25 +9,21 @@
 // The transitions from state A to ?. Write non-blocking code only, this is a polling state machine.
 void transitions_A(void* state_machine)
 {
-    printf("transition: A--->B [%d]--->[%d]\n", ((STATE_MACHINE*)state_machine)->current_state, ((STATE_MACHINE*)state_machine)->next_state);
 }
 
 // The transitions from state B to ?. Write non-blocking code only, this is a polling state machine.
 void transitions_B(void* state_machine)
 {
-    printf("transition: B--->C [%d]--->[%d]\n", ((STATE_MACHINE*)state_machine)->current_state, ((STATE_MACHINE*)state_machine)->next_state);
 }
 
 // The transitions from state C to ?. Write non-blocking code only, this is a polling state machine.
 void transitions_C(void* state_machine)
 {
-    printf("transition: C--->D [%d]--->[%d]\n", ((STATE_MACHINE*)state_machine)->current_state, ((STATE_MACHINE*)state_machine)->next_state);
 }
 
 // The transitions from state D to ?. Write non-blocking code only, this is a polling state machine.
 void transitions_D(void* state_machine)
 {
-    printf("transition: D--->A [%d]--->[%d]\n", ((STATE_MACHINE*)state_machine)->current_state, ((STATE_MACHINE*)state_machine)->next_state);
 }
 
 //! Modify if number of states or function names changed.
@@ -46,7 +42,7 @@ void transitions(void *state_machine)
     {
         ((STATE_MACHINE*)state_machine)->exit_actions[((STATE_MACHINE*)state_machine)->current_state](state_machine);
         ((STATE_MACHINE*)state_machine)->transitions[((STATE_MACHINE*)state_machine)->current_state](state_machine);
-        ((STATE_MACHINE*)state_machine)->has_new_input = 1;
+        ((STATE_MACHINE*)state_machine)->has_new_input = 0;
         ((STATE_MACHINE*)state_machine)->current_state = ((STATE_MACHINE*)state_machine)->next_state;
     }
 }

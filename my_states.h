@@ -1,7 +1,6 @@
 #ifndef _my_states_h_
 #define _my_states_h_
 
-#include <stdio.h>
 
 // Number of states
 #define MAX_STATES 4

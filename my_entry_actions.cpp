@@ -1,6 +1,6 @@
 #include "my_entry_actions.h"
 #include "my_state_machine.h"
-
+#include <Adafruit_NeoPixel.h>
 //! README!
 //! 1) This is a design for a polling state machine.
 //! 2) Write non-blocking code.
@@ -9,25 +9,33 @@
 // The entry action of state A. Write non-blocking code only, this is a polling state machine.
 void entry_action_state_A(void* state_machine)
 {
-    printf("entry: A [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+	STATE_MACHINE *state = (STATE_MACHINE *)state_machine;
+	state->strip->setPixelColor(0,200,0,0);
+	state->strip->show();
 }
 
 // The entry action of state B. Write non-blocking code only, this is a polling state machine.
 void entry_action_state_B(void* state_machine)
 {
-    printf("entry: B [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+	STATE_MACHINE *state = (STATE_MACHINE *)state_machine;
+	state->strip->setPixelColor(1,0,200,0);
+	state->strip->show();
 }
 
 // The entry action of state C. Write non-blocking code only, this is a polling state machine.
 void entry_action_state_C(void* state_machine)
 {
-    printf("entry: C [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+	STATE_MACHINE *state = (STATE_MACHINE *)state_machine;
+	state->strip->setPixelColor(2,0,0,200);
+	state->strip->show();
 }
 
 // The entry action of state D. Write non-blocking code only, this is a polling state machine.
 void entry_action_state_D(void* state_machine)
 {
-    printf("entry: D [%d]\n", ((STATE_MACHINE*)state_machine)->current_state);
+	STATE_MACHINE *state = (STATE_MACHINE *)state_machine;
+	state->strip->setPixelColor(3,200,200,200);
+	state->strip->show();
 }
 
 //! Modify if number of states or function names changed.
