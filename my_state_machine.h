@@ -16,6 +16,7 @@ typedef struct STATE_MACHINE
     STATE current_state;
     // Stores the next state
     STATE next_state;
+    unsigned int counter = 0;
 
     // 1 if there is new input, 0 if else
     int has_new_input;

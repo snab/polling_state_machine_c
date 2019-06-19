@@ -40,14 +40,14 @@ void setup() {
   initialize_transitions(&machine);
   initialize_exit_actions(&machine);
   initialize_entry_actions(&machine);
-     //! We're currently in 'A' and remain there until something happens.
-    // Define the current state
-    machine.current_state = A;
-    // Define the next state
-    machine.next_state    = A;
+  //! We're currently in 'A' and remain there until something happens.
+  // Define the current state
+  machine.current_state = A;
+  // Define the next state
+  machine.next_state    = A;
 
-    // Set the pointer to the input
-    machine.input = &input;
+  // Set the pointer to the input
+  machine.input = &input;
 }
 
 void loop() {
@@ -56,51 +56,58 @@ void loop() {
   int buttonMiddleState = digitalRead(buttonMiddlePin);
   int buttonRightState = digitalRead(buttonRightPin);
 
-    machine.strip->setPixelColor(0,144,0,0);
-    machine.strip->setPixelColor(1,0,240,0);
-    machine.strip->setPixelColor(2,0,233,0);
-    machine.strip->setPixelColor(3,0,0,120);
+
 
   if (buttonLeftState != buttonLeftLast && buttonLeftState == HIGH) {
     input = 'L';
-    
+
     machine.has_new_input = 1;
-    Serial.println("L");
+    Serial.println("3Button: L");
     Serial.println(*(machine.input));
-    Serial.println(machine.current_state-machine.next_state);
+    Serial.println(machine.current_state - machine.next_state);
   }
 
   if (buttonRightState != buttonRightLast && buttonRightState == HIGH) {
     input = 'R';
     machine.has_new_input = 1;
-    Serial.println("R");
+    Serial.println("3Button: R");
     Serial.println(*(machine.input));
-    Serial.println(machine.current_state-machine.next_state);
+    Serial.println(machine.current_state - machine.next_state);
   }
 
-  
+  if (buttonMiddleState != buttonMiddleLast && buttonMiddleState == HIGH) {
+    input = 'M';
+    machine.has_new_input = 1;
+    Serial.println("3Button: M");
+    Serial.println(*(machine.input));
+    Serial.println(machine.current_state - machine.next_state);
+  }
+
+
   machine.states[machine.current_state]((void*)&machine);
-  
+
+  machine.counter ++;
   buttonLeftLast = buttonLeftState;
   buttonMiddleLast = buttonMiddleState;
   buttonRightLast = buttonRightState;
 
- 
+  delay(300);
+
 
 
 }
 
 
 /*
-void loop() {
- 
+  void loop() {
+
         input = input != 'd'? input + 1:'a';
         machine.has_new_input = 1;
-        
+
         // This handles all the inputs and acts as the complete state machine. The self-reference makes it possible.
         //! Note: There is an exit() in my_exit_actions.h / exit_action_state_D.
         machine.states[machine.current_state]((void*)&machine);
         delay(1000);
 
-}
+  }
 */

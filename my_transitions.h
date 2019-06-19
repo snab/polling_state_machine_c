@@ -12,6 +12,12 @@ void transitions_C(void* state_machine);
 // Transition function of state D (all transitions FROM D TO ? )
 void transitions_D(void* state_machine);
 
+
+void transitions_AA(void* state_machine);
+void transitions_BB(void* state_machine);
+void transitions_CC(void* state_machine);
+void transitions_DD(void* state_machine);
+
 //! Initializes the transition array of the state machine, modify if the number of transitions, states or names of functions change.
 void initialize_transitions(void* state_machine);
 

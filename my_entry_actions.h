@@ -12,6 +12,11 @@ void entry_action_state_C(void* state_machine);
 // Entry actions of state D
 void entry_action_state_D(void* state_machine);
 
+void entry_action_state_AA(void* state_machine);
+void entry_action_state_BB(void* state_machine);
+void entry_action_state_CC(void* state_machine);
+void entry_action_state_DD(void* state_machine);
+
 //! Initializes the entry action array of the state machine, modify if the number of entry actions or names of entry action functions change.
 void initialize_entry_actions(void* state_machine);
 

@@ -11,6 +11,11 @@ void exit_action_state_C(void* state_machine);
 // Exit actions of state D
 void exit_action_state_D(void* state_machine);
 
+void exit_action_state_AA(void* state_machine);
+void exit_action_state_BB(void* state_machine);
+void exit_action_state_CC(void* state_machine);
+void exit_action_state_DD(void* state_machine);
+
 //! Initializes the exit action array of the state machine, modify if the number of exit actions or names of exit action functions change.
 void initialize_exit_actions(void* state_machine);
 
