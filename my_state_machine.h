@@ -17,6 +17,9 @@ typedef struct STATE_MACHINE
     // Stores the next state
     STATE next_state;
     unsigned int counter = 0;
+    unsigned int brightness = 100;
+    unsigned int upDown = 1;
+    uint16_t hue = 0;
 
     // 1 if there is new input, 0 if else
     int has_new_input;

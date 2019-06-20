@@ -17,7 +17,7 @@ void entry_action_state_A(void* state_machine)
       ((STATE_MACHINE*)state_machine)->next_state = D;
       break;
     case 'M':
-    Serial.println("transfer zu AA");
+      Serial.println("transfer zu AA");
       ((STATE_MACHINE*)state_machine)->next_state = AA;
       break;
   }
@@ -34,6 +34,9 @@ void entry_action_state_B(void* state_machine)
     case 'R':
       ((STATE_MACHINE*)state_machine)->next_state = A;
       break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = BB;
+      break;
 
   }
 }
@@ -48,6 +51,10 @@ void entry_action_state_C(void* state_machine)
     case 'R':
       ((STATE_MACHINE*)state_machine)->next_state = B;
       break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = CC;
+      break;
+
   }
 }
 
@@ -62,6 +69,10 @@ void entry_action_state_D(void* state_machine)
     case 'R':
       ((STATE_MACHINE*)state_machine)->next_state = C;
       break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = DD;
+      break;
+
   }
 }
 
@@ -81,12 +92,45 @@ void entry_action_state_AA(void* state_machine)
 }
 void entry_action_state_BB(void* state_machine)
 {
+  switch (*((STATE_MACHINE*)state_machine)->input) {
+    case 'L':
+      ((STATE_MACHINE*)state_machine)->next_state = A;
+      break;
+    case 'R':
+      ((STATE_MACHINE*)state_machine)->next_state = C;
+      break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = B;
+      break;
+  }
 }
 void entry_action_state_CC(void* state_machine)
 {
+  switch (*((STATE_MACHINE*)state_machine)->input) {
+    case 'L':
+      ((STATE_MACHINE*)state_machine)->next_state = B;
+      break;
+    case 'R':
+      ((STATE_MACHINE*)state_machine)->next_state = D;
+      break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = C;
+      break;
+  }
 }
 void entry_action_state_DD(void* state_machine)
 {
+  switch (*((STATE_MACHINE*)state_machine)->input) {
+    case 'L':
+      ((STATE_MACHINE*)state_machine)->next_state = C;
+      break;
+    case 'R':
+      ((STATE_MACHINE*)state_machine)->next_state = A;
+      break;
+    case 'M':
+      ((STATE_MACHINE*)state_machine)->next_state = D;
+      break;
+  }
 }
 
 //! Modify if number of states or function names changed.

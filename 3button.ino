@@ -1,5 +1,7 @@
 
 #include <Adafruit_NeoPixel.h>
+#include <stdfix.h>
+
 
 #include "my_state_machine.h"
 
@@ -91,7 +93,7 @@ void loop() {
   buttonMiddleLast = buttonMiddleState;
   buttonRightLast = buttonRightState;
 
-  delay(300);
+  delay(15);
 
 
 
